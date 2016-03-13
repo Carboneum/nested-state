@@ -4,6 +4,10 @@ namespace CarboneumTest\NestedState;
 
 use Carboneum\NestedState\State;
 
+/**
+ * Class StateTest
+ * @package CarboneumTest\NestedState
+ */
 class StateTest extends \PHPUnit_Framework_TestCase
 {
     /**

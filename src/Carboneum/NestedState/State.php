@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Carboneum\NestedState;
 
 use Carboneum\NestedState\Exception\ParameterMissingException;

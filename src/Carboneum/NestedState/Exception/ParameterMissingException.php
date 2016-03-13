@@ -1,12 +1,14 @@
 <?php
 
-
 namespace Carboneum\NestedState\Exception;
 
 use Exception;
-use Quartz\Framework\Exception\RuntimeException;
 
-class ParameterMissingException extends \Exception
+/**
+ * Class ParameterMissingException
+ * @package Carboneum\NestedState
+ */
+class ParameterMissingException extends NestedStateException
 {
     /**
      * @var string
