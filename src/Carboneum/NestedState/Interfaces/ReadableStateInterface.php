@@ -4,6 +4,10 @@ namespace Carboneum\NestedState\Interfaces;
 
 use Carboneum\NestedState\Exception\ParameterMissingException;
 
+/**
+ * Interface ReadableStateInterface
+ * @package Carboneum\NestedState
+ */
 interface ReadableStateInterface
 {
     /**
