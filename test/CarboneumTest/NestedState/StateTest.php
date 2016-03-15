@@ -2,6 +2,7 @@
 
 namespace CarboneumTest\NestedState;
 
+use Carboneum\NestedState\ImmutableState;
 use Carboneum\NestedState\State;
 
 /**
@@ -19,8 +20,10 @@ class StateTest extends \PHPUnit_Framework_TestCase
     public function testMatches(array $parametersToCheck, $expectedMatch)
     {
         $state = new State(['foo' => 1, 'bar' => true, 'olo' => null]);
+        $immutable = new ImmutableState($state);
 
         $this->assertEquals($expectedMatch, $state->matches($parametersToCheck));
+        $this->assertEquals($expectedMatch, $immutable->matches($parametersToCheck));
     }
 
     /**
@@ -62,12 +65,15 @@ class StateTest extends \PHPUnit_Framework_TestCase
     public function testSetParameter()
     {
         $state = new State(['foo' => 1, 'bar' => 2]);
+        $immutable = new ImmutableState($state);
 
         $this->assertEquals(2, $state->getParameter('bar'));
+        $this->assertEquals(2, $immutable->getParameter('bar'));
 
         $state->setParameter('bar', 3);
 
         $this->assertEquals(['foo' => 1, 'bar' => 3], $state->getAllParameters());
+        $this->assertEquals(['foo' => 1, 'bar' => 3], $immutable->getAllParameters());
     }
 
     /**
@@ -117,8 +123,10 @@ class StateTest extends \PHPUnit_Framework_TestCase
     public function testGetMatchWeight($lessWeight, $moreWeight)
     {
         $state = new State(['env' => 'dev', 'foo' => 1, 'bar' => true, 'olo' => 2]);
+        $immutable = new ImmutableState($state);
 
         $this->assertTrue($state->getMatchWeight($lessWeight) < $state->getMatchWeight($moreWeight));
+        $this->assertTrue($immutable->getMatchWeight($lessWeight) < $immutable->getMatchWeight($moreWeight));
     }
 
     /**
@@ -149,8 +157,10 @@ class StateTest extends \PHPUnit_Framework_TestCase
     public function testGetMatchWeightFalse()
     {
         $state = new State(['env' => 'dev', 'foo' => 1, 'bar' => true, 'olo' => 2]);
+        $immutable = new ImmutableState($state);
 
         $this->assertSame(false, $state->getMatchWeight(['env' => 'dev', 'bar' => false]));
+        $this->assertSame(false, $immutable->getMatchWeight(['env' => 'dev', 'bar' => false]));
     }
 
     /**

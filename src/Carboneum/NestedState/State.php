@@ -3,16 +3,22 @@
 namespace Carboneum\NestedState;
 
 use Carboneum\NestedState\Exception\ParameterMissingException;
+use Carboneum\NestedState\Interfaces\StateInterface;
 
 /**
  * Class State
  * @package Carboneum\NestedState
  */
-class State
+class State implements StateInterface
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters = [];
-    /** @var array */
+
+    /**
+     * @var array
+     */
     protected $parametersWeight = [];
 
     /**
@@ -28,7 +34,7 @@ class State
      * @param array $parameters
      * @return $this
      */
-    public function initParameters(array $parameters)
+    protected function initParameters(array $parameters)
     {
         $this->parameters = $parameters;
         $parametersPositions = array_flip(array_keys(array_reverse($parameters)));
@@ -41,10 +47,7 @@ class State
     }
 
     /**
-     * @param string $key
-     * @param string|int|bool $value
-     * @return $this
-     * @throws ParameterMissingException
+     * @inheritdoc
      */
     public function setParameter($key, $value)
     {
@@ -58,9 +61,7 @@ class State
     }
 
     /**
-     * @param string $key
-     * @return string|int|bool
-     * @throws ParameterMissingException
+     * @inheritdoc
      */
     public function getParameter($key)
     {
@@ -72,9 +73,7 @@ class State
     }
 
     /**
-     * @param array $keys
-     * @return array
-     * @throws ParameterMissingException
+     * @inheritdoc
      */
     public function getParameters(array $keys)
     {
@@ -88,7 +87,7 @@ class State
     }
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getAllParameters()
     {
@@ -96,8 +95,7 @@ class State
     }
 
     /**
-     * @param string $key
-     * @return bool
+     * @inheritdoc
      */
     public function hasParameter($key)
     {
@@ -105,8 +103,7 @@ class State
     }
 
     /**
-     * @param array $parameters
-     * @return bool
+     * @inheritdoc
      */
     public function matches(array $parameters)
     {
@@ -114,11 +111,7 @@ class State
     }
 
     /**
-     * Returns weight of parameters match – the higher match position is – the higher number returns.
-     * If parameters don't match – returns false.
-     *
-     * @param array $parameters
-     * @return int|bool
+     * @inheritdoc
      */
     public function getMatchWeight(array $parameters)
     {
