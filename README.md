@@ -1,5 +1,10 @@
 # Nested state
 
+[![Build Status](https://travis-ci.org/Carboneum/nested-state.svg?branch=master)](https://travis-ci.org/Carboneum/nested-state)
+[![Code Climate](https://codeclimate.com/github/Carboneum/nested-state/badges/gpa.svg)](https://codeclimate.com/github/Carboneum/nested-state)
+[![Test Coverage](https://codeclimate.com/github/Carboneum/nested-state/badges/coverage.svg)](https://codeclimate.com/github/Carboneum/nested-state/coverage)
+[![Issue Count](https://codeclimate.com/github/Carboneum/nested-state/badges/issue_count.svg)](https://codeclimate.com/github/Carboneum/nested-state)
+
 Class to model parametric state object. State is an object defined by hash of scalar values with scalar (string) keys.
 Each key of hash must be defined from the beginning, but some value for keys could be equal null to represent undefined
 state. One can change values for state parameters during state object lifetime, but cannot add new parameters.
