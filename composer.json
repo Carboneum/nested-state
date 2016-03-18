@@ -9,7 +9,8 @@
     "php": ">=5.5.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "codeclimate/php-test-reporter": "*"
   },
   "autoload": {
     "psr-0": {
