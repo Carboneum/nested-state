@@ -162,26 +162,4 @@ class StateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(false, $state->getMatchWeight(['env' => 'dev', 'bar' => false]));
         $this->assertSame(false, $immutable->getMatchWeight(['env' => 'dev', 'bar' => false]));
     }
-
-    /**
-     * @param array $expectedParams
-     * @param string $string
-     *
-     * @dataProvider provideTestGetParametersByString
-     */
-    public function testGetParametersByString($expectedParams, $string)
-    {
-        $this->assertEquals($expectedParams, State::getParametersByString($string));
-    }
-
-    /**
-     * @return array
-     */
-    public function provideTestGetParametersByString()
-    {
-        return [
-            [['foo' => 1, 'bar' => 2], 'foo=1&bar=2'],
-            [[], '']
-        ];
-    }
 }

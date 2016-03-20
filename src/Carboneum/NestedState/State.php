@@ -121,21 +121,4 @@ class State implements StateInterface
 
         return array_sum(array_intersect_key($this->parametersWeight, $parameters));
     }
-
-    /**
-     * @param string $string
-     * @return array
-     */
-    public static function getParametersByString($string)
-    {
-        $parameters = [];
-
-        if (empty($string)) {
-            return [];
-        }
-
-        parse_str($string, $parameters);
-
-        return $parameters;
-    }
 }
