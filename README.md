@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Carboneum/nested-state.svg?branch=master)](https://travis-ci.org/Carboneum/nested-state)
 [![Code Climate](https://codeclimate.com/github/Carboneum/nested-state/badges/gpa.svg)](https://codeclimate.com/github/Carboneum/nested-state)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Carboneum/nested-state/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Carboneum/nested-state/?branch=master)
 [![Test Coverage](https://codeclimate.com/github/Carboneum/nested-state/badges/coverage.svg)](https://codeclimate.com/github/Carboneum/nested-state/coverage)
 [![Issue Count](https://codeclimate.com/github/Carboneum/nested-state/badges/issue_count.svg)](https://codeclimate.com/github/Carboneum/nested-state)
 
