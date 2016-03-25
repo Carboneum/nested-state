@@ -10,10 +10,11 @@ use Exception;
  */
 class ParameterMissingException extends NestedStateException
 {
-    const CODE = 100;
-    const MESSAGE = "Key %key_name% is not defined";
+    const CODE = self::ERROR_CODE_PARAMETER_MISSING;
 
-    const KEY_NAME = '%key_name%';
+    const MESSAGE = "Key {key_name} is not defined";
+
+    const KEY_NAME = 'key_name';
 
     /**
      * @param string $keyName

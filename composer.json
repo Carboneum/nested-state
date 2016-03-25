@@ -4,9 +4,21 @@
   "description": "Tiny library to model parametric state object",
   "homepage": "http://github.com/carboneum/nested-state",
   "license": "MIT",
-  "authors": [],
+  "authors": [
+    {
+      "name": "Aleksandr Obukhov",
+      "email": "a.a.obukhov@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/carboneum/contextual-exception"
+    }
+  ],
   "require": {
-    "php": ">=5.5.0"
+    "php": ">=5.5.0",
+    "carboneum/contextual-exception": "~0.1"
   },
   "require-dev": {
     "phpunit/phpunit": "*",

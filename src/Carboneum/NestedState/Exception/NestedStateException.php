@@ -2,40 +2,18 @@
 
 namespace Carboneum\NestedState\Exception;
 
+use Carboneum\ContextualException\Exception;
+
 /**
  * Class NestedStateException
  * @package Carboneum\NestedState
  */
-class NestedStateException extends \Exception
+abstract class NestedStateException extends Exception
 {
+    const CODE_PACKAGE_PREFIX = 101000;
     const CODE = 0;
-    const MESSAGE = 'Error context: %error_context%';
 
-    private $context = [];
+    const MESSAGE = 'NestedState exception. Context: {exception_contexts}';
 
-    /**
-     *
-     * @param \Exception|null $previous
-     */
-    public function __construct(\Exception $previous = null)
-    {
-        parent::__construct($this->formatMessage(), static::CODE, $previous);
-    }
-
-    /**
-     * @param string $name
-     * @param string $value
-     */
-    protected function setContextValue($name, $value)
-    {
-        $this->context[$name] = $value;
-    }
-
-    /**
-     * @return string
-     */
-    protected function formatMessage()
-    {
-        return strtr(static::MESSAGE, array_merge($this->context, ['%error_context%' => json_encode($this->context)]));
-    }
+    const ERROR_CODE_PARAMETER_MISSING = 1;
 }
