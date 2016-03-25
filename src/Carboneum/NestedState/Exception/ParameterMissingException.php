@@ -10,29 +10,18 @@ use Exception;
  */
 class ParameterMissingException extends NestedStateException
 {
-    /**
-     * @var string
-     */
-    protected $parameter;
+    const CODE = 100;
+    const MESSAGE = "Key %key_name% is not defined";
+
+    const KEY_NAME = '%key_name%';
 
     /**
-     * @param string $parameter
-     * @param string $message
-     * @param int $code
+     * @param string $keyName
      * @param Exception $previous
      */
-    public function __construct($parameter, $message = "Key %s is not defined", $code = 0, Exception $previous = null)
+    public function __construct($keyName, Exception $previous = null)
     {
-        $this->parameter = $parameter;
-        parent::__construct(sprintf($message, $parameter), $code, $previous);
-    }
-
-    /**
-     * @codeCoverageIgnore
-     * @return string
-     */
-    public function getParameter()
-    {
-        return $this->parameter;
+        $this->setContextValue(self::KEY_NAME, $keyName);
+        parent::__construct($previous);
     }
 }
