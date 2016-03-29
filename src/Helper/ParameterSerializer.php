@@ -16,7 +16,7 @@ class ParameterSerializer
     {
         $parameters = [];
 
-        if (empty($string)) {
+        if (empty($string) || false === strpos($string, '=')) {
             return [];
         }
 

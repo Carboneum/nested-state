@@ -24,7 +24,9 @@ class ParameterSerializerTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [['foo' => 1, 'bar' => 2], 'foo=1&bar=2'],
-            [[], '']
+            [[], ''],
+            [[], 'default'],
+            [[], 'foobar'],
         ];
     }
 }
